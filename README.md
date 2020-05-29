@@ -1,1 +1,1 @@
-# tinkoff-payments
+# tinkoff payments
