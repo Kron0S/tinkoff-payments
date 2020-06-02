@@ -1,0 +1,12 @@
+{
+  "name": "tinkoff-payments",
+  "version": "1.0.0",
+  "description": "Tinkoff api for payments",
+  "private": false,
+  "author": "Kron0S",
+  "license": "Beerware",
+  "dependencies": {
+    "request": "2.88.2",
+    "lodash": "4.17.15"
+  }
+}
