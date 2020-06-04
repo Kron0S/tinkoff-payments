@@ -5,14 +5,15 @@ const {
     getEncryptedCardIdData
 } = require("../utils")
 
-async function doBindingPay(CardId, cvv, Amount, OrderId, NotificationURL, SuccessURL, FailURL) {
+async function doBindingPay(CardId, cvv, Amount, OrderId, NotificationURL, SuccessURL, FailURL, DATA) {
     const res = await low.init({
         Amount,
         OrderId,
         NotificationURL,
         SuccessURL,
         FailURL,
-        PayType: 'O'
+        PayType: 'O',
+        DATA
     })
     if (!res || !res.Success) {
         throw new Error(res.ErrorCode + '. ' + res.Message + '. ' + res.Details)
