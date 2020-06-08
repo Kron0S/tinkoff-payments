@@ -2,6 +2,7 @@
 
 const low = require("./low")
 const hi = require("./hi")
+const { getToken } = require("./utils")
 const {
     setTerminalKey,
     setPublicKey,
@@ -15,5 +16,6 @@ module.exports = {
     setPublicKey,
     setSecretKey,
     setApiUrl,
+    getToken,
     hi
 }
