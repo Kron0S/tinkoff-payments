@@ -14,6 +14,7 @@ async function doPay(CustomerKey, CardData, Amount, OrderId, NotificationURL, Su
         FailURL,
         CustomerKey,
         PayType: 'O',
+        Recurrent: 'Y',
         DATA
     })
     if (!res || !res.Success) {

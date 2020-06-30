@@ -1,6 +1,7 @@
 "use strict";
 
 const init = require("./init")
+const charge = require("./charge")
 const finishAuthorize = require("./finishAuthorize")
 const confirm = require("./confirm")
 const cancel = require("./cancel")
@@ -19,6 +20,7 @@ const submit3DSAuthorization = require(".//submit3DSAuthorization")
 
 module.exports = {
     init,
+    charge,
     finishAuthorize,
     confirm,
     cancel,

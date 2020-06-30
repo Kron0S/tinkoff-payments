@@ -5,7 +5,7 @@ const {
     getEncryptedCardIdData
 } = require("../utils")
 
-async function doBindingPay(CardId, cvv, Amount, OrderId, NotificationURL, SuccessURL, FailURL, DATA) {
+async function doBindingPay(RebillId, Amount, OrderId, NotificationURL, SuccessURL, FailURL, DATA) {
     const res = await low.init({
         Amount,
         OrderId,
@@ -19,8 +19,8 @@ async function doBindingPay(CardId, cvv, Amount, OrderId, NotificationURL, Succe
         throw new Error(res.ErrorCode + '. ' + res.Message + '. ' + res.Details)
     }
     const PaymentId = res.PaymentId
-    const res2 = await low.finishAuthorize({
-        CardData: getEncryptedCardIdData(CardId, cvv),
+    const res2 = await low.charge({
+        RebillId,
         PaymentId
     })
     if (!res2 || !res2.Success) {
