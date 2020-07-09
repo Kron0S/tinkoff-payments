@@ -5,8 +5,8 @@ const {
     getEncryptedCardData
 } = require("../utils")
 
-async function doPay(CustomerKey, CardData, Amount, OrderId, NotificationURL, SuccessURL, FailURL, DATA) {
-    const res = await low.init({
+async function doPay(CustomerKey, CardData, Amount, OrderId, NotificationURL, SuccessURL, FailURL, other = {}) {
+    const res = await low.init({...{
         Amount,
         OrderId,
         NotificationURL,
@@ -15,8 +15,7 @@ async function doPay(CustomerKey, CardData, Amount, OrderId, NotificationURL, Su
         CustomerKey,
         PayType: 'O',
         Recurrent: 'Y',
-        DATA
-    })
+    }, ...other})
     if (!res || !res.Success) {
         throw new Error(res.ErrorCode + '. ' + res.Message + '. ' + res.Details)
     }
