@@ -4,6 +4,7 @@ const init = require("./init")
 const charge = require("./charge")
 const finishAuthorize = require("./finishAuthorize")
 const confirm = require("./confirm")
+const check3dsVersion = require("./check3dsVersion")
 const cancel = require("./cancel")
 const getState = require("./getState")
 const resend = require("./resend")
@@ -23,6 +24,7 @@ module.exports = {
     charge,
     finishAuthorize,
     confirm,
+    check3dsVersion,
     cancel,
     getState,
     resend,
