@@ -94,6 +94,8 @@ const getEncryptedCardIdData = function (cardId, cvv) {
 
 const getToken = function (params) {
     const tokenParams = Object.assign({}, params);
+    delete tokenParams.Receipt
+    delete tokenParams.DATA
     tokenParams.Password = getSecretKey();
     const pairs = _.toPairs(tokenParams);
     const sortedPairs = _.sortBy(pairs, pair => pair[0]);
