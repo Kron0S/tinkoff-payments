@@ -1,6 +1,6 @@
 {
   "name": "tinkoff-payments",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Tinkoff api for payments",
   "private": false,
   "author": "Kron0S",

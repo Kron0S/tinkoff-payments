@@ -27,7 +27,7 @@ const getRequest = function () {
 }
 
 
-const requestMethod = function (methodName, params) {
+const requestMethod = function (methodName, params, extParams={json: true}) {
     const methodUrl = `${getApiUrl()}${methodName}`;
     const methodParams = Object.assign({}, params);
     methodParams.TerminalKey = getTerminalKey();
@@ -40,9 +40,9 @@ const requestMethod = function (methodName, params) {
             uri: methodUrl,
             method: 'POST',
             body: methodParams,
-            json: true,
             gzip: true,
-            timeout: 25000
+            timeout: 25000,
+            ...extParams,
         }, (err, response, body) => {
             if (err) {
                 debug('error %s', err.toString());
