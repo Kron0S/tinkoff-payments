@@ -27,7 +27,7 @@ const getRequest = function () {
 }
 
 
-const requestMethod = function (methodName, params, extParams={json: true}) {
+const requestMethod = function (methodName, params, type='json') {
     const methodUrl = `${getApiUrl()}${methodName}`;
     const methodParams = Object.assign({}, params);
     methodParams.TerminalKey = getTerminalKey();
@@ -36,14 +36,20 @@ const requestMethod = function (methodName, params, extParams={json: true}) {
     const requestPromise = new Promise((resolve, reject) => {
         debug('send \'%s\' with %o', methodUrl, methodParams);
 
-        getRequest()({
+        let opts = {
             uri: methodUrl,
             method: 'POST',
-            body: methodParams,
             gzip: true,
             timeout: 25000,
-            ...extParams,
-        }, (err, response, body) => {
+        }
+        if (type === 'json') {
+            opts.json = true
+            opts.body = methodParams
+        } else {
+            opts.form = methodParams
+        }
+
+        getRequest()(opts, (err, response, body) => {
             if (err) {
                 debug('error %s', err.toString());
                 reject(err);

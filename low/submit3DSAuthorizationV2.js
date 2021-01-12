@@ -5,14 +5,7 @@ const {
 } = require("../utils")
 
 const submit3DSAuthorizationV2 = function (params) {
-    return requestMethod('Submit3DSAuthorizationV2', params, {
-        headers: [
-            {
-                name: 'content-type',
-                value: 'application/x-www-form-urlencoded'
-            }
-        ],
-    })
+    return requestMethod('Submit3DSAuthorizationV2', params, 'form')
 }
 
 module.exports = submit3DSAuthorizationV2
