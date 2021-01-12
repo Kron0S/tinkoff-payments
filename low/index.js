@@ -17,7 +17,8 @@ const getAddCardState = require("./getAddCardState")
 const getCardList = require("./getCardList")
 const removeCard = require("./removeCard")
 const submitRandomAmount = require("./submitRandomAmount")
-const submit3DSAuthorization = require(".//submit3DSAuthorization")
+const submit3DSAuthorization = require("./submit3DSAuthorization")
+const submit3DSAuthorizationV2 = require("./submit3DSAuthorizationV2")
 
 module.exports = {
     init,
@@ -38,4 +39,5 @@ module.exports = {
     removeCard,
     submitRandomAmount,
     submit3DSAuthorization,
+    submit3DSAuthorizationV2,
 }
