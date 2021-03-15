@@ -28,10 +28,9 @@ async function run() {
         const res = await low.getCardList({
             CustomerKey: 1
         })
-        console.log(res)
+        console.log(JSON.stringify(res))
     } catch (err) {
-        console.log('Error')
-        console.log(err)
+        console.log(JSON.stringify(err))
     }
 }
 

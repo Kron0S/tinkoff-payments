@@ -40,8 +40,7 @@ async function run() {
         )
         console.log(PaymentId)
     } catch (err) {
-        console.log('Error')
-        console.log(err)
+        console.log(JSON.stringify(err))
     }
 }
 
